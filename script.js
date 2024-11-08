@@ -1,6 +1,7 @@
-const addBook = document.getElementById('addBook');
-const shelf = document.getElementById('shelf');
-const myLibrary = [
+const   action = document.getElementById('action');
+const   addBook = document.getElementById('addBook');
+const   btnCont = document.getElementById('btnCont');
+const   originalData = [
     {   Title: "Pride and Prejudice",
         Author: "Jane Austen",
         Pages: 226,
@@ -22,88 +23,106 @@ const myLibrary = [
         Read: "read",
     },
 ];
+let     confirmAction;
+const   message = document.createElement('p');
+const   msgCont = document.getElementById('msgCont');
+const   no = document.createElement('button');
+const   shelf = document.getElementById('shelf');
+let     whichBook;
+const   yes = document.createElement('button');
+
+no.textContent = 'no';
+no.addEventListener('click', () => performAction('no'));
+message.textContent = 'Remove this book from the library?';
+yes.textContent = 'yes';
+yes.addEventListener('click', () => performAction('yes'));
+
+let myLibrary = originalData;
+displayBooks(myLibrary);
 
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    // this.info = function(){
-    //     alert(`${title} by ${author}, ${pages} pages, ${read}`)
-    // };
 }
 
 function addBookToLibrary(){
-    // 
+    //CALL constructor
+    //  
 }
 
 function displayBooks(myLibrary){
     for (let i = 0; i < myLibrary.length; i++){
         let card = document.createElement('div');
         let title = document.createElement('p');
-        title.textContent = `Title: ${myLibrary[i].Title}`;
+        title.textContent = `${myLibrary[i].Title}`;
         let author = document.createElement('p');
-        author.textContent = `Author: ${myLibrary[i].Author}`;
+        author.textContent = `by ${myLibrary[i].Author}`;
         let pages = document.createElement('p');
-        pages.textContent = `Pages: ${myLibrary[i].Pages}`;
+        pages.textContent = `${myLibrary[i].Pages} pages`;
         let read = document.createElement('p');
-        read.textContent = `Read: ${myLibrary[i].Read}`;
+        read.textContent = `${myLibrary[i].Read}`;
+        let container = document.createElement('div');
         let button = document.createElement('button');
-        button.textContent = 'remove';
-        card.appendChild(title)
+        button.textContent = 'x';
+        button.classList.add(i);
+        button.value = i;
+        button.addEventListener('click', () => checkAction(button));
+        card.classList.add('card');
+        card.classList.add(i);
+        card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
-        card.appendChild(button);
-        card.classList.add('card');
+        container.appendChild(button);
+        card.appendChild(container);
         shelf.appendChild(card);
     } 
 }
 
-displayBooks(myLibrary);
+function checkAction(button){
+    whichBook = +button.value;
+    action.classList.add('remove');
+    msgCont.appendChild(message);
+    btnCont.appendChild(yes);
+    btnCont.appendChild(no);
+}
+
+function performAction(response){
+    action.classList.remove('remove');
+    message.remove();
+    yes.remove();
+    no.remove();
+    confirmAction = response;
+    removeBookFromLibrary(confirmAction, whichBook);
+}
+
+function removeBookFromLibrary(confirmAction, whichBook){
+    if (confirmAction === 'yes'){
+        myLibrary.splice(whichBook, 1);
+        clearShelf();
+        displayBooks(myLibrary);
+    }
+}
+
+function clearShelf(){
+    while (shelf.firstChild){
+        shelf.removeChild(shelf.firstChild);
+    }
+}
 
 
 /*
-PAGE loads
-DISPLAYS current collection
-CLICK add book
-    OUTPUT form
-    SUBMIT data
-    CREATES book
-    ADD book to collection
-
-DISPLAY BOOKS - RESULTS OF ATTEMPT 1
-    - creates an array with 5(?) items(div.card)
-    - each array has all books therefore books are multiplied by 5
-    - TypeError at return statement Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.
-
-    let book = [];
-    for (let i = 0; i <= myLibrary.length; i++){
-        // CREATE card (div)
-        book[i] = document.createElement('div');
-        //FOR EACH PROPERTY
-        for (const [key, value] of Object.entries(myLibrary)){
-            //CREATE DOM element
-            let property = document.createElement('div');
-            //output property to element
-            property.textContent = `${value}`;
-            //append element to book[i]
-            book[i].appendChild(property);
-        //END FOR    
-        }
-        // CREATE delete button 
-        let button = document.createElement('button');
-        // ADD text to button
-        button.textContent = 'remove';
-        // ADD button to card
-        book[i].appendChild(button);
-        // ADD class to div
-        book[i].classList.add('card');
-    // END FOR    
-    }
-    // APPEND card to shelf (div)
-    return shelf.appendChild(book);
-}    
-
-
+===================================== TO SOLVE
+1. Remove book logic
+2. Add book logic
+3. Read / unread logic
+4. 
 */
+
+/* ===================================== TESTING CENTRE */
+// OPTION 1 - remove from array copy and rerun display function
+// OPTION 2 - remove dom elements that display the book
+// OPTION 3 - identify 'removed' book and rerun display books   and skip iteration with 'removed' status
+
