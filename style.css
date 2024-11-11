@@ -1,1 +1,125 @@
-@import "modern-normalize";
+@import "/node_modules/modern-normalize/modern-normalize.css";
+
+
+/* ================= END OF RESET */
+/* ================= COLOUR PALETTES */
+
+/* OPTION 1
+#733C4A = MAUVE
+#253D40 = FORREST
+#627369 = SAGE
+#4D2F32 = OFF BLACK
+#0D0D0D = GOLD */
+
+:root {
+    --mauve: #733C4A;
+    --forrest: #253D40;
+    --sage: #627369;
+    --charcoal: #0D0D0A;
+    --gold: #A6783F;
+    --chesnut: #592C1C;
+    --eggshell: #F0CBAD;
+    --brown: #331F15;
+}
+
+body {
+    background: var(--eggshell);
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* ================= SHELF */
+#shelf {
+    background-color: var(--brown);
+    border-bottom: 16px solid var(--brown);
+    box-shadow: inset 0px -60px var(--chesnut);
+    display: flex;
+    align-items: flex-end;
+    height: 340px;   
+    justify-content: center;
+    padding-bottom: 12px;
+    gap: 14px;
+    width: 100vw;
+}
+
+/* ================= CARDS */
+.card {
+    background-color: var(--sage);
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: inset 50px 0px 0 -34px var(--forrest),
+        inset 55px 0px 0 -34px var(--gold),
+        4px -4px 6px #c7c7c7,
+        6px -6px #f1f1f1,
+        7px -7px black;
+
+    color: var(--charcoal);
+    height: 248px;
+    width: 248px;
+    padding-left: 22px;
+}
+
+.card > :first-child {
+    font-size: larger;
+    font-weight: 500;
+}
+
+.card > div > button {
+    /* position: relative; */
+    bottom: -14px;
+    font-size: x-small;
+    height: 16px;
+    width: 16px;
+    /* background-color: ; */
+    margin: 0;
+    padding: 0;
+}
+
+/* ================= DESK */
+/* ================= ACTION */
+#action {
+    /* style mid page */
+}
+
+.remove {
+    /* style remove specific */
+    display: flex;
+    /* trying to make 2 columns / 2 rows first row span 2 columns */
+    /* grid-template: 1fr 1fr / 1fr 1fr;   */
+    flex-direction: column;
+    height: 150px;
+    width: 300px;
+}
+
+.remove > p {
+    grid-column: 1 / 3;
+}
+
+#addBookDiv {
+    background-color: var(--eggshell);
+    border: 1px solid red;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+#addBookForm {
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+}
+
+#addBookForm.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+input {
+    border: 1px solid blueviolet;
+}
+
+label {
+    border: 1px solid blue;
+}

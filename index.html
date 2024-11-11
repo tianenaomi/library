@@ -9,7 +9,37 @@
 <body>
     <h1>Library</h1>
     <div id="shelf"></div>
-    <button id="addBtn" type="button">Add Book</button>
+
+    <button id="addForm" type="button">Add Book</button>
+
+    <div id="action">
+        <div id="msgCont"></div>
+        <div id="btnCont"></div>
+    </div>
+
+    <div id="addBookDiv">
+        <form action="" id="addBookForm">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author">
+            <label for="pages">Pages</label>
+            <input type="text" name="pages" id="pages">
+            <div>
+                <label for="read">Read</label>
+                <input type="radio" name="status" id="read" value="read">
+            </div>
+            <div>
+                <label for="unread">Unread</label>
+                <input type="radio" name="status" id="unread" value="unread">
+            </div>
+            <div>
+                <button type="button" id="addBook">add</button>
+                <button type="button" id="closeAddBook">close</button>
+            </div>
+        </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
