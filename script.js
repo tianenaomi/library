@@ -1,77 +1,113 @@
 const   action = document.getElementById('action');
-const   addBook = document.getElementById('addBook').addEventListener('click', () => addBookToLibrary());
-const   addBookForm = document.getElementById('addForm').addEventListener('click', () => form.classList.add('open'));
-const   btnCont = document.getElementById('btnCont');
+const   addBookBtn = document.getElementById('addForm').addEventListener('click', () => {
+    form.classList.add('open');
+    addBookDiv.classList.add('open');
+});
+const   addBookDiv = document.getElementById('addBookDiv');
+const   closeAddBook = document.getElementById('closeAddBook').addEventListener('click', () => closeAddBookForm());
 let     confirmAction;
 const   form = document.getElementById('addBookForm');
 const   formTitle = document.getElementById('title');
 const   formAuthor = document.getElementById('author');
 const   formPages = document.getElementById('pages');
 const   formRadios = document.querySelectorAll('input[type="radio"]');
-const   message = document.createElement('p');
-const   msgCont = document.getElementById('msgCont');
-const   no = document.createElement('button');
+const   no = document.getElementById('no').addEventListener('click', () => performAction('no')); 
+let     radio;
+let     removeAuthor = document.getElementById('removeAuthor');
+let     removeTitle = document.getElementById('removeTitle');
+const   shelf = document.getElementById('shelf');  
+const   submitBookBtn = document.getElementById('addBook').addEventListener('click', () => addBookToLibrary());
+let     whichBook;
+const   yes = document.getElementById('yes').addEventListener('click', () => performAction('yes'));
 const   originalData = [
     {   title: "Pride and Prejudice",
         author: "Jane Austen",
         pages: 226,
-        read: "read",
-    },
-    {   title: "Dracula",
-        author: "Bram Stoker",
-        pages: 488,
-        read: "read",
-    },
-    {   title: "Frankenstein",
-        author: "Mary Shelley",
-        pages: 352,
-        read: "read",
+        readStatus: "read",
     },
     {   title: "Bridget Jones's Diary",
         author: "Helen Fielding",
         pages: 320,
-        read: "read",
+        readStatus: "read",
+    },
+    {   title: "Frankenstein",
+        author: "Mary Shelley",
+        pages: 352,
+        readStatus: "unread",
+    },
+    {   title: "Dracula",
+        author: "Bram Stoker",
+        pages: 488,
+        readStatus: "unread",
     },
 ];
-const   shelf = document.getElementById('shelf');  
-let     radio;
-let     whichBook;
-const   yes = document.createElement('button');
 
-no.textContent = 'no';
-no.addEventListener('click', () => performAction('no'));
-message.textContent = 'Remove this book from the library?';
-yes.textContent = 'yes';
-yes.addEventListener('click', () => performAction('yes'));
+let myLibrary = [];
 
-let myLibrary = originalData;
-displayBooks(myLibrary);
-
-function Book(title, author, pages, read){
+function Book(title, author, pages, readStatus){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.readStatus = readStatus;
 }
 
-function findRadioValue(){
-    formRadios.forEach(radioButton => {
-        if (radioButton.checked == true){
-            radio = radioButton.value;
-        }
-    });
-    console.log('radio function completed')
-    return radio;
-}
+Book.prototype.toggleStatus = function() {
+    if (this.readStatus === 'read'){
+        this.readStatus = 'unread';
+    } else if (this.readStatus === 'unread'){
+        this.readStatus = 'read';
+    }
+    return this.readStatus;
+} //need to stay above createBooks and displayBooks function calls
+
+createBooks(originalData);
+displayBooks(myLibrary);
+colourStatus(myLibrary);
 
 function addBookToLibrary(){
     findRadioValue();
     let newBook = new Book(formTitle.value, formAuthor.value, formPages.value, radio);
-    console.log(myLibrary);
     myLibrary.push(newBook);
-    console.log(myLibrary);
     clearShelf();
     displayBooks(myLibrary);
+    closeAddBookForm();
+}
+
+function checkAction(xbutton, title, author){
+    form.classList.remove('open');
+    whichBook = +xbutton.value;
+    removeTitle.textContent = title.textContent;
+    removeAuthor.textContent = author.textContent;
+    action.classList.add('open');
+}
+
+function clearShelf(){
+    while (shelf.firstChild){
+        shelf.removeChild(shelf.firstChild);
+    }
+}
+
+function closeAddBookForm(){
+    form.reset();
+    form.classList.remove('open');
+    addBookDiv.classList.remove('open');
+}
+
+function colourStatus(myLibrary){
+    let cards = document.querySelectorAll('.card'); 
+    for (let i = 0; i < cards.length; i++){
+        if (myLibrary[i].readStatus === 'read'){
+            cards[i].classList.add('read');
+        } else 
+            cards[i].classList.remove('read');
+    }
+}
+
+function createBooks(originalData){
+    for (let i = 0; i < originalData.length; i++){
+      myLibrary.push(new Book(originalData[i].title, originalData[i].author, originalData[i].pages, originalData[i].readStatus));
+    }
+    return myLibrary;
 }
 
 function displayBooks(myLibrary){ 
@@ -80,42 +116,48 @@ function displayBooks(myLibrary){
         let title = document.createElement('p');
         title.textContent = `${myLibrary[i].title}`;
         let author = document.createElement('p');
-        author.textContent = `by ${myLibrary[i].author}`;
+        author.textContent = `${myLibrary[i].author}`;
         let pages = document.createElement('p');
         pages.textContent = `${myLibrary[i].pages} pages`;
-        let read = document.createElement('p');
-        read.textContent = `${myLibrary[i].read}`;
+        let readStatus = document.createElement('button');
+        readStatus.textContent = `${myLibrary[i].readStatus}`;
+        colourStatus(myLibrary);
+        readStatus.addEventListener('click', () => {
+            myLibrary[i].toggleStatus();
+            readStatus.textContent = `${myLibrary[i].readStatus}`
+            colourStatus(myLibrary);
+        });
         let container = document.createElement('div');
-        let button = document.createElement('button');
-        button.textContent = 'x';
-        button.classList.add(i);
-        button.value = i;
-        button.addEventListener('click', () => checkAction(button));
+        let xbutton = document.createElement('button');
+        xbutton.textContent = 'x';
+        xbutton.classList.add(i);
+        xbutton.value = i;
+        xbutton.addEventListener('click', () => checkAction(xbutton, title, author));
         card.classList.add('card');
         card.classList.add(i);
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
-        card.appendChild(read);
-        container.appendChild(button);
+        container.appendChild(readStatus);
+        container.appendChild(xbutton);
         card.appendChild(container);
         shelf.appendChild(card);
     } 
 }
 
-function checkAction(button){
-    whichBook = +button.value;
-    action.classList.add('remove');
-    msgCont.appendChild(message);
-    btnCont.appendChild(yes);
-    btnCont.appendChild(no);
+function findRadioValue(){
+    formRadios.forEach(radioButton => {
+        if (radioButton.checked == true){
+            radio = radioButton.value;
+        }
+    });
+    return radio;
 }
 
 function performAction(response){
-    action.classList.remove('remove');
-    message.remove();
-    yes.remove();
-    no.remove();
+    action.classList.remove('open');
+    removeTitle.textContent = '';
+    removeAuthor.textContent = '';
     confirmAction = response;
     removeBookFromLibrary(confirmAction, whichBook);
 }
@@ -127,18 +169,3 @@ function removeBookFromLibrary(confirmAction, whichBook){
         displayBooks(myLibrary);
     }
 }
-
-function clearShelf(){
-    while (shelf.firstChild){
-        shelf.removeChild(shelf.firstChild);
-    }
-}
-
-
-/*
-===================================== TO SOLVE
-3. Read / unread logic
-4. 
-*/
-
-/* ===================================== TESTING CENTRE */
