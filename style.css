@@ -1,15 +1,165 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
 
 
-/* ================= END OF RESET */
-/* ================= COLOUR PALETTES */
+@font-face {
+    font-family: 'charmregular';
+    src: url('/resources/fonts/woff_files/charm-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/charm-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-/* OPTION 1
-#733C4A = MAUVE
-#253D40 = FORREST
-#627369 = SAGE
-#4D2F32 = OFF BLACK
-#0D0D0D = GOLD */
+/* @font-face {
+    font-family: 'give_you_gloryregular';
+    src: url('/resources/fonts/woff_files/giveyouglory-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/giveyouglory-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: 'goudy_bookletter_1911regular';
+    src: url('/resources/fonts/woff_files/goudybookletter1911-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/goudybookletter1911-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'grenze_gotischregular';
+    src: url('/resources/fonts/woff_files/grenzegotisch-variablefont_wght-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/grenzegotisch-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'nothing_you_could_doregular';
+    src: url('/resources/fonts/woff_files/nothingyoucoulddo-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/nothingyoucoulddo-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* @font-face {
+    font-family: 'reenie_beanieregular';
+    src: url('/resources/fonts/woff_files/reeniebeanie-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/reeniebeanie-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: 'ryeregular';
+    src: url('/resources/fonts/woff_files/rye-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/rye-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'schoolbellregular';
+    src: url('/resources/fonts/woff_files/schoolbell-regular-webfont.woff2') format('woff2'),
+         url('/resources/fonts/woff_files/schoolbell-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ================= END OF RESET */
+/* ================= FONTS 
+---- script -----
+// GIVE YOU GLORY
+Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+// Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+// NOTHING YOU COULD DO
+Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+// Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+// REENIE BEENIE
+Copyright (c) 2010, James Grieshaber (james@typeco.com)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+//Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+// SCHOOLBELL
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+APPENDIX: How to apply the Apache License to your work.
+
+    To apply the Apache License to your work, attach the following
+    boilerplate notice, with the fields enclosed by brackets "[]"
+    replaced with your own identifying information. (Don't include
+    the brackets!)  The text should be enclosed in the appropriate
+    comment syntax for the file format. We also recommend that a
+    file or class name and description of purpose be included on the
+    same "printed page" as the copyright notice for easier
+    identification within third-party archives.
+
+---- serif -----
+// CHARM
+Copyright 2018 The Charm Project Authors (https://github.com/cadsondemak/charm)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+// GOUDY BOOKLETTER
+Copyright (c) 2010, Barry Schwartz (crudfactory.com)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+// GRENZE
+Copyright 2020 The Grenze Gotisch Project Authors (https://github.com/Omnibus-Type/Grenze-Gotisch)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+
+*/
 
 :root {
     --mauve: #733C4A;
@@ -18,26 +168,35 @@
     --charcoal: #0D0D0A;
     --gold: #A6783F;
     --chesnut: #592C1C;
-    --eggshell: #F0CBAD;
+    /* --eggshell: #F0CBAD; */
     --brown: #331F15;
+    --off-white: #f1f1f1;
 }
 
 body {
-    background: var(--eggshell);
+    background: var(--mauve);
     padding: 0;
     margin: 0;
 }
 
+h1 {
+    color: var(--charcoal);
+    font-family: 'ryeregular';
+    justify-self: center;
 
+}
 
 /* ================= SHELF */
 #shelf {
     background-color: var(--brown);
     border-bottom: 16px solid var(--brown);
-    box-shadow: inset 0px -60px var(--chesnut);
+    border-top: 16px solid var(--chesnut);
+    box-shadow: inset 0px -60px var(--chesnut),
+    inset 0px -80px 50px #0d0d0a78,
+    0px 10px 10px #0d0d0a78;
     display: flex;
     align-items: flex-end;
-    height: 340px;   
+    height: 300px;   
     justify-content: center;
     padding-bottom: 12px;
     gap: 14px;
@@ -49,77 +208,319 @@ body {
     background-color: var(--sage);
     border: 1px solid black;
     border-radius: 4px;
-    box-shadow: inset 50px 0px 0 -34px var(--forrest),
+    box-shadow: 
+        /* pages */
+        2px -1px #f1f1f1,
+        3px -2px var(--charcoal),
+        4px -3px #f1f1f1,
+        5px -4px var(--charcoal),
+        6px -5px #f1f1f1,
+        7px -6px var(--charcoal),
+        8px -7px #f1f1f1,
+        9px -8px var(--charcoal),
+        10px -9px #f1f1f1, 
+        11px -10px var(--charcoal),
+        /* END pages */
+        /* book spine */
+        inset 50px 0px 0 -34px var(--forrest),
         inset 55px 0px 0 -34px var(--gold),
-        4px -4px 6px #c7c7c7,
-        6px -6px #f1f1f1,
-        7px -7px black;
-
+        0px -3px var(--forrest),
+        1px -4px var(--forrest),
+        2px -5px var(--forrest),
+        3px -6px var(--forrest),
+        4px -7px var(--forrest),
+        5px -8px var(--forrest),
+        6px -9px var(--forrest),
+        7px -10px var(--forrest),
+        /* END book spine */
+        4px 4px 4px 4px #0d0d0ab6;
     color: var(--charcoal);
-    height: 248px;
-    width: 248px;
-    padding-left: 22px;
+    height: 220px;
+    width: 220px;
+    padding: 0 6px 0 26px;;
+}
+
+.card > * {
+    text-align: center;
+    width: 100%;
 }
 
 .card > :first-child {
-    font-size: larger;
+    font-family: 'grenze_gotischregular';
+    font-size: 1.5em;
     font-weight: 500;
 }
 
-.card > div > button {
-    /* position: relative; */
-    bottom: -14px;
-    font-size: x-small;
-    height: 16px;
-    width: 16px;
-    /* background-color: ; */
-    margin: 0;
-    padding: 0;
+.card > :nth-child(2){
+    font-size: 1.1em;
+}
+
+.card > :nth-child(n+2) {
+    font-family: 'goudy_bookletter_1911regular';
+}
+
+.card > div > :first-child {
+    background-color: var(--mauve);
+    border: 2px outset var(--mauve);
+    border-radius: 4px;
+    margin-right: 8px;
+    width: 60px
+}
+
+.card > div > :first-child:hover {
+    background-color: #733c4ac2;
+}
+
+.card.read > div > :first-child {
+    background-color: var(--gold);
+    border: 2px inset var(--gold);
+}
+
+.card.read > div > :first-child:hover {
+    background-color: #a6783fc2;
+}
+
+.card > div > :nth-child(2){
+    background-color: var(--mauve);
+    border: 2px outset var(--mauve);
+    border-radius: 4px;
+}
+
+.card > div > :nth-child(2):hover {
+    background-color: #733c4ac2;
+}
+
+.card > div > :nth-child(2):active {
+    background-color: #0d0d0a87;
+    border: 2px inset #0d0d0a87;
 }
 
 /* ================= DESK */
-/* ================= ACTION */
-#action {
-    /* style mid page */
+#desk {
+    background-color: var(--chesnut);
+    border-bottom: 16px solid var(--brown);
+    border-top: 1px solid var(--brown);
+    box-shadow: 0px 10px 10px #0d0d0a78;
+    display: flex;   
+    justify-content: space-between;
+    margin-bottom: 24px;
+    position: relative;
+    width: 100vw;
 }
 
-.remove {
-    /* style remove specific */
-    display: flex;
-    /* trying to make 2 columns / 2 rows first row span 2 columns */
-    /* grid-template: 1fr 1fr / 1fr 1fr;   */
-    flex-direction: column;
-    height: 150px;
+/* ================= ACTION */
+
+#desk > div {
+    /* border: 1px solid yellow; */
     width: 300px;
 }
 
-.remove > p {
-    grid-column: 1 / 3;
+#addForm {
+    color: var(--charcoal);
+    background-color: var(--gold);
+    border: 2px outset var(--gold);
+    border-radius: 4px;
+    box-shadow: 4px 4px 4px #0d0d0a78;
+    font-family: 'goudy_bookletter_1911regular';
+    margin: 24px 52px;
+    height: 56px;
+    width: 60px;
+}
+
+#addForm:hover {
+    background-color: #a6783fc2;
+}
+
+#addForm:active {
+    border: 2px inset var(--gold);
+}
+
+#action {
+    background-color: var(--chesnut);
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    position: relative;
+    height: 150px;
+    margin-top: 20px;
+    width: 300px;
+    z-index: -1;
+}
+
+#action.open {
+    z-index: 999;
+}
+
+#action > div {
+    background-color: var(--off-white);
+    border-radius: 4px;
+    box-shadow: 6px 6px 6px #0d0d0ab6;
+    color: var(--charcoal);
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 10px;
+    width: 300px;
+
+}
+
+#action > div > p {
+    font-size: 1.4em;
+    border-bottom: 2px solid var(--charcoal);
+    letter-spacing: .1em;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+    text-align: center;
+    width: 100%;
+}
+
+#msgCont div {
+    border-bottom: 1px solid var(--charcoal);
+    display: flex;
+    align-items: end;
+    height: 32px;
+    padding-bottom: 4px;
+}
+
+#msgCont div > :first-child {
+    display: inline-block;
+    letter-spacing: .08em;
+    padding-left: 18px;  
+    width: 86px;
+}
+
+#msgCont > p {
+    padding-left: 18px;
+    font-size: 1.1em;
+}
+
+#msgCont > div span {
+    font-size: 1.1em;
+}
+
+#removeTitle,
+#removeAuthor {
+    font-family: 'schoolbellregular';
+    letter-spacing: .1em;
+}
+
+#btnCont {
+    border-bottom: 2px solid var(--charcoal);
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+#yes,
+#no {
+    font-size: 1.1em;
+    border: 4px solid var(--off-white);
+    border-radius: 44%;
+    width: 72px;
+}
+
+#yes:hover,
+#no:hover,
+#addBookFormBtns > *:hover {
+    border: 4px solid #f6ff00;
 }
 
 #addBookDiv {
-    background-color: var(--eggshell);
-    border: 1px solid red;
-    display: flex;
-    width: 100vw;
+    background-color: var(--chesnut);
+    display: flex;   
     justify-content: center;
+    order: 3;
+    padding: 20px;
+    height: 100%;
+}
+
+#addBookDiv.open {
+    order: 1;
 }
 
 #addBookForm {
+    background-color: var(--off-white);
+    border: 1px solid var(--charcoal);
+    border-radius: 4px;
+    box-shadow: inset 51px 0px 0 -34px var(--off-white),
+    inset 52px 0px 0 -34px red,
+    inset 53px 0px 0 -34px var(--off-white),
+    inset 54px 0px 0 -34px red,
+    6px 6px 6px #0d0d0ab6;
     display: flex;
     flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: .1em;
+    padding-left: 20px;
+    width: 248px;
     z-index: -1;
 }
 
 #addBookForm.open {
-    opacity: 1;
     z-index: 999;
 }
 
-input {
-    border: 1px solid blueviolet;
+#addBookForm p {
+    border-bottom: 3.4px double red;
+    font-size: 1.2em;
+    padding-left: 4px;
+    margin: 24px 0 24px 0;
+}
+
+#addBookForm > label,
+#addBookForm input,
+#readStatus,
+#addBookFormBtns {
+    height: 26px;
+    border-top: 1px solid blue;
+}
+
+input[type='text'] {
+    border: none;
+    font-family: 'schoolbellregular';
+    font-size: 1.2em;
+    padding-left: 4px;
 }
 
 label {
-    border: 1px solid blue;
+    padding-left: 4px;
+    padding-top: 4px;
 }
+
+#readStatus {
+    border-bottom: 1px solid blue;
+    display: flex;
+    align-items: bottom;
+    gap: 16px;
+}
+
+#readStatus > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#addBookFormBtns {
+    display: flex;
+    border-bottom: 1px solid blue;
+    gap: 16px;
+    justify-content: center;
+    letter-spacing: 0.1em;
+    margin: 24px 0 24px 0;
+}
+
+#addBookFormBtns > * {
+    border: none;
+    border-radius: 44%;
+    height: 100%;
+    width: 72px;
+}
+
+
+/* To do
+1. card greyed out when remove button is clicked
+2. cards are shuffled based on author surname
+3. buttons change colour on hover
+
+*/
