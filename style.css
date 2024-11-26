@@ -1,22 +1,5 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
 
-
-@font-face {
-    font-family: 'charmregular';
-    src: url('/resources/fonts/woff_files/charm-regular-webfont.woff2') format('woff2'),
-         url('/resources/fonts/woff_files/charm-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* @font-face {
-    font-family: 'give_you_gloryregular';
-    src: url('/resources/fonts/woff_files/giveyouglory-regular-webfont.woff2') format('woff2'),
-         url('/resources/fonts/woff_files/giveyouglory-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} */
-
 @font-face {
     font-family: 'goudy_bookletter_1911regular';
     src: url('/resources/fonts/woff_files/goudybookletter1911-regular-webfont.woff2') format('woff2'),
@@ -32,22 +15,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-/* @font-face {
-    font-family: 'nothing_you_could_doregular';
-    src: url('/resources/fonts/woff_files/nothingyoucoulddo-regular-webfont.woff2') format('woff2'),
-         url('/resources/fonts/woff_files/nothingyoucoulddo-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} */
-
-/* @font-face {
-    font-family: 'reenie_beanieregular';
-    src: url('/resources/fonts/woff_files/reeniebeanie-regular-webfont.woff2') format('woff2'),
-         url('/resources/fonts/woff_files/reeniebeanie-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} */
 
 @font-face {
     font-family: 'ryeregular';
@@ -66,100 +33,6 @@
 }
 
 /* ================= END OF RESET */
-/* ================= FONTS 
----- script -----
-// GIVE YOU GLORY
-Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
-// Original or Modified Versions of the Font Software may be bundled,
-redistributed and/or sold with any software, provided that each copy
-contains the above copyright notice and this license. These can be
-included either as stand-alone text files, human-readable headers or
-in the appropriate machine-readable metadata fields within text or
-binary files as long as those fields can be easily viewed by the user.
-
-// NOTHING YOU COULD DO
-Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
-// Original or Modified Versions of the Font Software may be bundled,
-redistributed and/or sold with any software, provided that each copy
-contains the above copyright notice and this license. These can be
-included either as stand-alone text files, human-readable headers or
-in the appropriate machine-readable metadata fields within text or
-binary files as long as those fields can be easily viewed by the user.
-
-// REENIE BEENIE
-Copyright (c) 2010, James Grieshaber (james@typeco.com)
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
-//Original or Modified Versions of the Font Software may be bundled,
-redistributed and/or sold with any software, provided that each copy
-contains the above copyright notice and this license. These can be
-included either as stand-alone text files, human-readable headers or
-in the appropriate machine-readable metadata fields within text or
-binary files as long as those fields can be easily viewed by the user.
-
-// SCHOOLBELL
-Copyright [yyyy] [name of copyright owner]
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-APPENDIX: How to apply the Apache License to your work.
-
-    To apply the Apache License to your work, attach the following
-    boilerplate notice, with the fields enclosed by brackets "[]"
-    replaced with your own identifying information. (Don't include
-    the brackets!)  The text should be enclosed in the appropriate
-    comment syntax for the file format. We also recommend that a
-    file or class name and description of purpose be included on the
-    same "printed page" as the copyright notice for easier
-    identification within third-party archives.
-
----- serif -----
-// CHARM
-Copyright 2018 The Charm Project Authors (https://github.com/cadsondemak/charm)
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
-// GOUDY BOOKLETTER
-Copyright (c) 2010, Barry Schwartz (crudfactory.com)
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
-// GRENZE
-Copyright 2020 The Grenze Gotisch Project Authors (https://github.com/Omnibus-Type/Grenze-Gotisch)
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
-
-*/
 
 :root {
     --mauve: #733C4A;
@@ -168,7 +41,6 @@ https://openfontlicense.org
     --charcoal: #0D0D0A;
     --gold: #A6783F;
     --chesnut: #592C1C;
-    /* --eggshell: #F0CBAD; */
     --brown: #331F15;
     --off-white: #f1f1f1;
 }
@@ -185,7 +57,6 @@ h1 {
     justify-self: center;
 
 }
-
 /* ================= SHELF */
 #shelf {
     background-color: var(--brown);
@@ -311,7 +182,6 @@ h1 {
 /* ================= ACTION */
 
 #desk > div {
-    /* border: 1px solid yellow; */
     width: 300px;
 }
 
@@ -359,7 +229,6 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     padding-bottom: 10px;
     width: 300px;
-
 }
 
 #action > div > p {
@@ -517,10 +386,7 @@ label {
     width: 72px;
 }
 
-
 /* To do
 1. card greyed out when remove button is clicked
 2. cards are shuffled based on author surname
-3. buttons change colour on hover
-
 */
