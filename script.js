@@ -1,24 +1,22 @@
 const   action = document.getElementById('action');
-const   addBookBtn = document.getElementById('addForm').addEventListener('click', () => {
-    form.classList.add('open');
-    addBookDiv.classList.add('open');
-});
+const   addBookBtn = document.getElementById('addForm');
 const   addBookDiv = document.getElementById('addBookDiv');
-const   closeAddBook = document.getElementById('closeAddBook').addEventListener('click', () => closeAddBookForm());
-let     confirmAction;
+const   closeAddBook = document.getElementById('closeAddBook');
 const   form = document.getElementById('addBookForm');
 const   formTitle = document.getElementById('title');
 const   formAuthor = document.getElementById('author');
 const   formPages = document.getElementById('pages');
 const   formRadios = document.querySelectorAll('input[type="radio"]');
-const   no = document.getElementById('no').addEventListener('click', () => performAction('no')); 
-let     radio;
+const   no = document.getElementById('no');
 let     removeAuthor = document.getElementById('removeAuthor');
 let     removeTitle = document.getElementById('removeTitle');
 const   shelf = document.getElementById('shelf');  
-const   submitBookBtn = document.getElementById('addBook').addEventListener('click', () => addBookToLibrary());
-let     whichBook;
-const   yes = document.getElementById('yes').addEventListener('click', () => performAction('yes'));
+const   submitBookBtn = document.getElementById('addBook');
+const   yes = document.getElementById('yes');
+
+// NEW variables
+let     confirmAction;
+let     myLibrary = [];
 const   originalData = [
     {   title: "Pride and Prejudice",
         author: "Jane Austen",
@@ -41,8 +39,22 @@ const   originalData = [
         readStatus: "unread",
     },
 ];
+let     radio;
+let     whichBook;
+//  END new variables
 
-let myLibrary = [];
+// EVENT listeners
+addBookBtn.addEventListener('click', () => openNewBookForm());
+closeAddBook.addEventListener('click', () => closeAddBookForm());
+form.addEventListener('submit', (event) => {
+    //SEE BOTTOM OF PAGE
+    console.log(event.target);
+    event.preventDefault(); 
+    addBookToLibrary();
+});
+no.addEventListener('click', () => performAction('no')); 
+yes.addEventListener('click', () => performAction('yes'));
+// END event listeners
 
 function Book(title, author, pages, readStatus){
     this.title = title;
@@ -75,6 +87,8 @@ function addBookToLibrary(){
 
 function checkAction(xbutton, title, author){
     form.classList.remove('open');
+    addBookDiv.classList.remove('open');
+    xbutton.disabled = true;
     whichBook = +xbutton.value;
     removeTitle.textContent = title.textContent;
     removeAuthor.textContent = author.textContent;
@@ -130,7 +144,7 @@ function displayBooks(myLibrary){
         let container = document.createElement('div');
         let xbutton = document.createElement('button');
         xbutton.textContent = 'x';
-        xbutton.classList.add(i);
+        xbutton.setAttribute('id', 'button' + i);
         xbutton.value = i;
         xbutton.addEventListener('click', () => checkAction(xbutton, title, author));
         card.classList.add('card');
@@ -154,18 +168,38 @@ function findRadioValue(){
     return radio;
 }
 
+function openNewBookForm(){
+    let form = document.getElementById('addBookForm');
+    form.classList.add('open');
+    addBookDiv.classList.add('open');
+    action.classList.remove('open');
+    resetCheckAction();
+}
+
 function performAction(response){
     action.classList.remove('open');
     removeTitle.textContent = '';
     removeAuthor.textContent = '';
     confirmAction = response;
-    removeBookFromLibrary(confirmAction, whichBook);
+    removeBookFromLibrary();
 }
 
-function removeBookFromLibrary(confirmAction, whichBook){
+function removeBookFromLibrary(){
     if (confirmAction === 'yes'){
         myLibrary.splice(whichBook, 1);
         clearShelf();
         displayBooks(myLibrary);
+    } else if (confirmAction === 'no'){
+        resetCheckAction();
     }
+}
+
+function resetCheckAction(){
+    removeTitle.textContent = '';
+    removeAuthor.textContent = '';
+    console.log(document.getElementById(`button${whichBook}`));
+    let xbutton = document.getElementById(`button${whichBook}`);
+    console.log(document);
+    xbutton.disabled = false;
+    whichBook = '';
 }
