@@ -5,41 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP Library Project</title>
     <link rel="stylesheet" href="/style.css">
+    <!-- FONT licensing
+
+    // GOUDY BOOKLETTER
+    Copyright (c) 2010, Barry Schwartz (crudfactory.com)
+
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at:
+    https://openfontlicense.org
+
+    // GRENZE
+    Copyright 2020 The Grenze Gotisch Project Authors (https://github.com/Omnibus-Type/Grenze-Gotisch)
+
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at:
+    https://openfontlicense.org
+
+    //RYE
+    Copyright (c) 2011 by Sorkin Type Co (www.sorkintype.com),
+    with Reserved Font Name "Rye".
+
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at:
+    https://openfontlicense.org
+
+    // SCHOOLBELL
+    Copyright [2024] [Tiane Zerba]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0    
+    
+    END font licensing-->
+
 </head>
 <body>
-    <h1>Library</h1>
+    <h1>My Library</h1>
     <div id="shelf"></div>
 
-    <button id="addForm" type="button">Add Book</button>
+    <h1>My Desk</h1>
+    <div id="desk">
 
-    <div id="action">
-        <div id="msgCont"></div>
-        <div id="btnCont"></div>
+        <div>
+            <button id="addForm" type="button">Add <br> book</button>
+        </div>
+
+        <div id="action">
+            <div>
+                <p>Library Request Card</p>
+                <div id="msgCont">
+                    <div></div>
+                    <div>
+                        <span>Title:</span><span id="removeTitle"></span>
+                    </div>
+                    <div>
+                        <span>Author:</span><span id="removeAuthor"></span>
+                    </div>
+                    <p>Remove this book from the library?</p>
+                </div>
+                <div id="btnCont">
+                    <button id="yes">yes</button>
+                    <button id="no">no</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="addBookDiv">
+            <form action="" id="addBookForm">
+                <p>New Book Details</p>
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" required/>
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author" 
+                        pattern="/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i" required/>
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages" min="1" required/>
+                <div id="readStatus">
+                    <div>
+                        <label for="read">Read</label>
+                        <input type="radio" name="status" id="read" value="read" required/>
+                    </div>
+                    <div>
+                        <label for="unread">Unread</label>
+                        <input type="radio" name="status" id="unread" value="unread">
+                    </div>
+                </div>
+                <div id="addBookFormBtns">
+                    <button type="submit" id="addBook">submit</button>
+                    <button type="button" id="closeAddBook">close</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div id="addBookDiv">
-        <form action="" id="addBookForm">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author">
-            <label for="pages">Pages</label>
-            <input type="text" name="pages" id="pages">
-            <div>
-                <label for="read">Read</label>
-                <input type="radio" name="status" id="read" value="read">
-            </div>
-            <div>
-                <label for="unread">Unread</label>
-                <input type="radio" name="status" id="unread" value="unread">
-            </div>
-            <div>
-                <button type="button" id="addBook">add</button>
-                <button type="button" id="closeAddBook">close</button>
-            </div>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
