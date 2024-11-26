@@ -173,7 +173,9 @@ function openNewBookForm(){
     form.classList.add('open');
     addBookDiv.classList.add('open');
     action.classList.remove('open');
-    resetCheckAction();
+    whichBook = '';
+    removeTitle.textContent = '';
+    removeAuthor.textContent = '';
 }
 
 function performAction(response){
@@ -197,9 +199,7 @@ function removeBookFromLibrary(){
 function resetCheckAction(){
     removeTitle.textContent = '';
     removeAuthor.textContent = '';
-    console.log(document.getElementById(`button${whichBook}`));
     let xbutton = document.getElementById(`button${whichBook}`);
-    console.log(document);
     xbutton.disabled = false;
     whichBook = '';
 }

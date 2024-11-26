@@ -138,8 +138,13 @@ h1 {
     width: 60px
 }
 
-.card > div > :first-child:hover {
-    background-color: #733c4ac2;
+.card > div > :first-child:hover,
+.card.read > div > :first-child:hover,
+.card > div > :nth-child(2):hover,
+#addForm:hover {
+    background-color: var(--forrest);
+    border: 2px solid var(--forrest);
+    opacity: 50%;
 }
 
 .card.read > div > :first-child {
@@ -147,18 +152,10 @@ h1 {
     border: 2px inset var(--gold);
 }
 
-.card.read > div > :first-child:hover {
-    background-color: #a6783fc2;
-}
-
 .card > div > :nth-child(2){
     background-color: var(--mauve);
     border: 2px outset var(--mauve);
     border-radius: 4px;
-}
-
-.card > div > :nth-child(2):hover {
-    background-color: #733c4ac2;
 }
 
 .card > div > :nth-child(2):active {
@@ -195,10 +192,6 @@ h1 {
     margin: 24px 52px;
     height: 56px;
     width: 60px;
-}
-
-#addForm:hover {
-    background-color: #a6783fc2;
 }
 
 #addForm:active {
@@ -335,6 +328,17 @@ h1 {
     font-size: 1.2em;
     padding-left: 4px;
     margin: 24px 0 24px 0;
+}
+
+input[type='number']{
+    border: none;
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #addBookForm > label,
