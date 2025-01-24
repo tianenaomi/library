@@ -56,21 +56,25 @@ no.addEventListener('click', () => performAction('no'));
 yes.addEventListener('click', () => performAction('yes'));
 // END event listeners
 
-function Book(title, author, pages, readStatus){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
+class Book {
+    constructor(title, author, pages, readStatus){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
 }
 
-Book.prototype.toggleStatus = function() {
-    if (this.readStatus === 'read'){
-        this.readStatus = 'unread';
-    } else if (this.readStatus === 'unread'){
-        this.readStatus = 'read';
+class Status extends Book {
+    toggleStatus(){
+        if (this.readStatus === 'read'){
+            this.readStatus = 'unread';
+        } else if (this.readStatus === 'unread'){
+            this.readStatus = 'read';
+        }
+        return this.readStatus;
     }
-    return this.readStatus;
-} //need to stay above createBooks and displayBooks function calls
+}
 
 createBooks(originalData);
 displayBooks(myLibrary);
@@ -119,7 +123,7 @@ function colourStatus(myLibrary){
 
 function createBooks(originalData){
     for (let i = 0; i < originalData.length; i++){
-      myLibrary.push(new Book(originalData[i].title, originalData[i].author, originalData[i].pages, originalData[i].readStatus));
+      myLibrary.push(new Status(originalData[i].title, originalData[i].author, originalData[i].pages, originalData[i].readStatus));
     }
     return myLibrary;
 }
